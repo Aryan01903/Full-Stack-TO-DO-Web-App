@@ -14,26 +14,35 @@ const todoSchema = new mongoose.Schema(
 
     completed: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     priority: {
       type: String,
       enum: ["low", "medium", "high"],
-      default: "medium"
+      default: "medium",
     },
 
     dueDate: {
-      type: Date
+      type: Date,
     },
 
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      required: true
-    }
+      required: true,
+    },
+    
+    isDeleted: {
+      type: Boolean,
+      default: false,
+    },
+
+    deletedAt: {
+      type: Date,
+    },
   },
   { timestamps: true }
-)
+);
 
 module.exports = mongoose.model("Todo", todoSchema)

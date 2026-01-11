@@ -2,6 +2,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 const cors = require('cors')
 const authRoutes = require('./routes/user.route')
+const todoRoutes = require('./routes/todo.route')
 require('dotenv').config()
 const app = express()
 
@@ -30,6 +31,7 @@ app.use(express.json());
 
 
 app.use('/auth', authRoutes)
+app.use('/todo', todoRoutes)
 
 
 mongoose
