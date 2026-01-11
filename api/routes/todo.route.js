@@ -1,10 +1,8 @@
 const express = require("express")
 const router = express.Router()
 
-const authMW = require("../middlewares/authMW")
-const saveTodo = require("../controllers/saveTodo")
-const deleteTodo = require("../controllers/deleteTodo")
-const getTodos = require("../controllers/getTodos")
+const authMW = require("../middleware/authMW")
+const {saveTodo, getTodos, deleteTodo} = require('../controllers/todo.controller')
 
 router.post("/save", authMW, saveTodo)
 router.get("/list", authMW, getTodos)
